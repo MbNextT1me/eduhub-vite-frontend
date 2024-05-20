@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   description: yup.string().required("Description is required"),
 });
 
-export const CreateTaskModal = ({ open, onClose }) => {
+export const CreateTaskModal = ({ isOpen, onClose }) => {
   const {
     handleSubmit,
     control,
@@ -47,7 +47,7 @@ export const CreateTaskModal = ({ open, onClose }) => {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+    <Dialog open={isOpen} onClose={onClose} maxWidth="xs" fullWidth>
       <DialogTitle>Create Task</DialogTitle>
       <DialogContent>
         <Stack

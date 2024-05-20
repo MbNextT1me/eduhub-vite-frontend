@@ -27,3 +27,6 @@ export const useDeleteUser = () => {
       }),
   });
 };
+
+export const useStudents = () =>
+  useQuery({ queryKey: ["students"], queryFn: api.getStudents });

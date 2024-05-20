@@ -9,7 +9,7 @@ export const TeacherTasksPage = () => {
 
   return (
     <>
-      <CreateTaskModal open={isModalOpen} onClose={modalHandlers.close} />
+      <CreateTaskModal isOpen={isModalOpen} onClose={modalHandlers.close} />
 
       <PageShell>
         <Box mb={2}>

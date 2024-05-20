@@ -15,6 +15,7 @@ import { AdminUsersPage } from "./admin/users";
 import { TeacherTasksPage } from "./teacher/tasks";
 import { StudentTasksPage } from "./student/tasks";
 import { TeacherTaskPage } from "./teacher/task";
+import { StudentTaskPage } from "./student/task";
 
 const publicRoutes = [
   {
@@ -41,6 +42,10 @@ const studentRoutes = [
       {
         index: true,
         element: <StudentTasksPage />,
+      },
+      {
+        path: studentPaths.task(),
+        element: <StudentTaskPage />,
       },
     ],
   },

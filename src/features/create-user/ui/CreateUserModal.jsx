@@ -33,7 +33,7 @@ const schema = yup.object().shape({
   role: yup.string().required("Role is required"),
 });
 
-export const CreateUserModal = ({ open, onClose }) => {
+export const CreateUserModal = ({ isOpen, onClose }) => {
   const {
     handleSubmit,
     control,
@@ -59,7 +59,7 @@ export const CreateUserModal = ({ open, onClose }) => {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+    <Dialog open={isOpen} onClose={onClose} maxWidth="xs" fullWidth>
       <DialogTitle>Create user</DialogTitle>
       <DialogContent>
         <Stack

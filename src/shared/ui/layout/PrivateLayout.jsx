@@ -1,8 +1,9 @@
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { sessionModel } from "~/entities/session";
 import { APP_NAME } from "~/shared/config/env";
+import { privateRoutes } from "~/shared/config/routes";
 
 export const PrivateLayout = () => {
   const user = sessionModel.getUserCache();
@@ -12,7 +13,17 @@ export const PrivateLayout = () => {
     <>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6" component="div">
+          <Typography
+            variant="h6"
+            sx={{
+              color: "inherit",
+              "&, &:focus, &:hover, &:visited, &:link, &:active": {
+                textDecoration: "none",
+              },
+            }}
+            component={Link}
+            to={privateRoutes.root()}
+          >
             {APP_NAME}
           </Typography>
           <Box sx={{ width: "100%" }} />

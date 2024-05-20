@@ -3,15 +3,20 @@ export const publicPaths = {
   login: () => publicPaths.root(),
 };
 
-export const adminPaths = {
+export const privateRoutes = {
   root: () => "/",
+};
+
+export const adminPaths = {
+  ...privateRoutes,
 };
 
 export const studentPaths = {
-  root: () => "/",
+  ...privateRoutes,
+  task: (id) => studentPaths.root() + `tasks/${id ?? ":taskId"}`,
 };
 
 export const teacherPaths = {
-  root: () => "/",
+  ...privateRoutes,
   task: (id) => teacherPaths.root() + `tasks/${id ?? ":taskId"}`,
 };

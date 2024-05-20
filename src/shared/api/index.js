@@ -7,19 +7,52 @@ class Api {
     this.axiosInstance = axios.create(options);
   }
 
-  deleteFile = (id) =>
+  sendFileToCluster = (formData) =>
     this.privateRequest({
-      url: `files/${id}`,
-      method: "DELETE",
+      url: "clusters/remoteExecution",
+      method: "POST",
+      data: formData,
     });
 
-  getTask = (id) =>
+  downloadFile = (fileId) =>
     this.privateRequest({
-      url: `tasks/${id}`,
+      url: `files/${fileId}`,
+      method: "GET",
+      responseType: "arraybuffer",
+    });
+
+  getTaskFilesByEmail = ({ taskId, email }) =>
+    this.privateRequest({
+      url: `tasks/${taskId}/users/${email}`,
       method: "GET",
     });
 
-  getFiles = ({ taskId, category }) =>
+  getStudents = () =>
+    this.privateRequest({
+      url: "users/ROLE_STUDENT",
+      method: "GET",
+    });
+
+  addFile = (formData) =>
+    this.privateRequest({
+      url: "tasks/files",
+      method: "POST",
+      data: formData,
+    });
+
+  deleteFile = (fileId) =>
+    this.privateRequest({
+      url: `files/${fileId}`,
+      method: "DELETE",
+    });
+
+  getTask = (taskId) =>
+    this.privateRequest({
+      url: `tasks/${taskId}`,
+      method: "GET",
+    });
+
+  getTaskFiles = ({ taskId, category }) =>
     this.privateRequest({
       url: `tasks/${taskId}/files/${category}`,
       method: "GET",
@@ -38,9 +71,9 @@ class Api {
       method: "GET",
     });
 
-  deleteTask = (id) =>
+  deleteTask = (taskId) =>
     this.privateRequest({
-      url: `tasks/${id}`,
+      url: `tasks/${taskId}`,
       method: "DELETE",
     });
 
@@ -51,9 +84,9 @@ class Api {
       data,
     });
 
-  deleteUser = (id) =>
+  deleteUser = (taskId) =>
     this.privateRequest({
-      url: `users/${id}`,
+      url: `users/${taskId}`,
       method: "DELETE",
     });
 

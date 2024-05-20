@@ -9,7 +9,7 @@ export const AdminUsersPage = () => {
 
   return (
     <>
-      <CreateUserModal open={isModalOpen} onClose={modalHandlers.close} />
+      <CreateUserModal isOpen={isModalOpen} onClose={modalHandlers.close} />
 
       <PageShell>
         <Box mb={2}>

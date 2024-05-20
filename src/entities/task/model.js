@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "~/shared/api";
 
-export const useTask = (id) =>
-  useQuery({ queryKey: ["task", id], queryFn: () => api.getTask(id) });
+export const useTask = (taskId) =>
+  useQuery({ queryKey: ["task", taskId], queryFn: () => api.getTask(taskId) });
 
 export const useTasks = () =>
   useQuery({ queryKey: ["tasks"], queryFn: api.getTasks });
