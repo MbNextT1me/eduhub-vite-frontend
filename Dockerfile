@@ -26,8 +26,8 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Копируем сертификаты
-COPY /etc/ssl/certs/selfsigned.crt /etc/ssl/certs/selfsigned.crt
-COPY /etc/ssl/private/selfsigned.key /etc/ssl/private/selfsigned.key
+COPY certs/selfsigned.crt /etc/ssl/certs/selfsigned.crt
+COPY certs/selfsigned.key /etc/ssl/private/selfsigned.key
 
 # Открываем порты
 EXPOSE 80
