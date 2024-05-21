@@ -25,8 +25,13 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Копируем конфигурацию Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Открываем порт 80
+# Копируем сертификаты
+COPY /etc/ssl/certs/selfsigned.crt /etc/ssl/certs/selfsigned.crt
+COPY /etc/ssl/private/selfsigned.key /etc/ssl/private/selfsigned.key
+
+# Открываем порты
 EXPOSE 80
+EXPOSE 443
 
 # Запускаем Nginx
 CMD ["nginx", "-g", "daemon off;"]
