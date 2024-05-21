@@ -27,7 +27,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Копируем сертификаты
 COPY certs/selfsigned.crt /etc/ssl/certs/selfsigned.crt
-COPY certs/selfsigned.key /etc/ssl/private/selfsigned.key
+COPY certs/selfsigned_no_passphrase.key /etc/ssl/private/selfsigned.key
 
 # Открываем порты
 EXPOSE 80
