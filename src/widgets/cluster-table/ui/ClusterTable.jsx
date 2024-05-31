@@ -42,7 +42,7 @@ import {
               <TableRow key={cluster.id}>
                 <TableCell align="center">{cluster.id}</TableCell>
                 <TableCell align="center">{cluster.name}</TableCell>
-                <TableCell align="center">{cluster.hostNam}</TableCell>
+                <TableCell align="center">{cluster.hostName}</TableCell>
                 <TableCell align="center">{cluster.port}</TableCell>
                 <TableCell align="center">{cluster.hostUserName}</TableCell>
                 <TableCell align="center">{cluster.usedAsActive ? 'Yes' : 'No'}</TableCell>
