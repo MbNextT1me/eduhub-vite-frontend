@@ -10,7 +10,7 @@ import {
   Stack,
 } from "@mui/material";
 import { useEffect } from "react";
-import { useCreateCluster } from "~/entities/cluster";
+import { clusterModel } from "~/entities/cluster";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -36,7 +36,7 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
       host_user_password: "",
     },
   });
-  const createCluster = useCreateCluster();
+  const createCluster = clusterModel.useCreateCluster();
 
   useEffect(() => {
     if (isSubmitSuccessful) {
