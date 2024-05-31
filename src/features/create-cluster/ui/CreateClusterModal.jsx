@@ -9,6 +9,10 @@ import {
   DialogContent,
   Stack,
   Checkbox,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@mui/material";
 import { useEffect } from "react";
 import { clusterModel } from "~/entities/cluster";
@@ -135,11 +139,18 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
             name="usedAsActive"
             control={control}
             render={({ field }) => (
-              <Checkbox
-                {...field}
-                label="Is Active"
-                color="primary"
-              />
+              <FormControl fullWidth>
+                <InputLabel id="usedAsActive-label">Is Active</InputLabel>
+                <Select
+                  {...field}
+                  labelId="usedAsActive-label"
+                  id="usedAsActive"
+                  label="Is Active"
+                >
+                  <MenuItem value={true}>Yes</MenuItem>
+                  <MenuItem value={false}>No</MenuItem>
+                </Select>
+              </FormControl>
             )}
           />
 
