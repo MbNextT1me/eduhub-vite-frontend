@@ -20,14 +20,14 @@ export const AdminUsersPage = () => {
           <Button variant="contained" size="large" onClick={userModalHandlers.open}>
             Create user
           </Button>
-          <Button variant="contained" size="large" onClick={clusterModalHandlers.open} style={{ marginLeft: 8 }}>
+        </Box>
+        <UserTable />
+        <Box mb={2}> 
+        <Button variant="contained" size="large" onClick={clusterModalHandlers.open}>
             Create cluster
           </Button>
         </Box>
-        <UserTable />
-        <Box mt={4}>
-          <ClusterTable />
-        </Box>
+        <ClusterTable />
       </PageShell>
     </>
   );
