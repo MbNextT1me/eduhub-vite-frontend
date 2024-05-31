@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogContent,
   Stack,
+  Checkbox, // Добавлен импорт Checkbox
 } from "@mui/material";
 import { useEffect } from "react";
 import { clusterModel } from "~/entities/cluster";
@@ -18,6 +19,7 @@ const schema = yup.object().shape({
   port: yup.string().required("Port is required"),
   host_user_name: yup.string().required("User Name is required"),
   host_user_password: yup.string().required("Password is required"),
+  usedAsActive: yup.boolean().required(),
 });
 
 export const CreateClusterModal = ({ isOpen, onClose }) => {
@@ -34,6 +36,7 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
       port: "",
       host_user_name: "",
       host_user_password: "",
+      usedAsActive: false,
     },
   });
   const createCluster = clusterModel.useCreateCluster();
@@ -128,6 +131,18 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
               />
             )}
           />
+          <Controller
+            name="usedAsActive"
+            control={control}
+            render={({ field }) => (
+              <Checkbox
+                {...field}
+                label="Is Active"
+                color="primary"
+              />
+            )}
+          />
+
           <Button type="submit" variant="contained" size="large">
             Submit
           </Button>
