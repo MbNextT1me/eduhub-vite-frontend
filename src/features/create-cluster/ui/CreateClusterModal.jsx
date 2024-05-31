@@ -8,18 +8,18 @@ import {
   DialogTitle,
   DialogContent,
   Stack,
-  Checkbox, // Добавлен импорт Checkbox
+  Checkbox,
 } from "@mui/material";
 import { useEffect } from "react";
 import { clusterModel } from "~/entities/cluster";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
-  host_name: yup.string().required("Host Name is required"),
+  hostName: yup.string().required("Host Name is required"),
   port: yup.string().required("Port is required"),
-  host_user_name: yup.string().required("User Name is required"),
-  host_user_password: yup.string().required("Password is required"),
-  usedAsActive: yup.boolean().required(),
+  hostUserName: yup.string().required("User Name is required"),
+  hostUserPassword: yup.string().required("Password is required"),
+  usedAsActive: yup.boolean().required("usedAsActive is required"),
 });
 
 export const CreateClusterModal = ({ isOpen, onClose }) => {
@@ -32,10 +32,10 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
     resolver: yupResolver(schema),
     defaultValues: {
       name: "",
-      host_name: "",
+      hostName: "",
       port: "",
-      host_user_name: "",
-      host_user_password: "",
+      hostUserName: "",
+      hostUserPassword: "",
       usedAsActive: false,
     },
   });
@@ -75,7 +75,7 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
             )}
           />
           <Controller
-            name="host_name"
+            name="hostName"
             control={control}
             render={({ field }) => (
               <TextField
@@ -83,8 +83,8 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
                 label="Host Name"
                 variant="outlined"
                 fullWidth
-                error={!!errors.host_name}
-                helperText={errors.host_name?.message}
+                error={!!errors.hostName}
+                helperText={errors.hostName?.message}
               />
             )}
           />
@@ -103,7 +103,7 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
             )}
           />
           <Controller
-            name="host_user_name"
+            name="hostUserName"
             control={control}
             render={({ field }) => (
               <TextField
@@ -111,13 +111,13 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
                 label="User Name"
                 variant="outlined"
                 fullWidth
-                error={!!errors.host_user_name}
-                helperText={errors.host_user_name?.message}
+                error={!!errors.hostUserName}
+                helperText={errors.hostUserName?.message}
               />
             )}
           />
           <Controller
-            name="host_user_password"
+            name="hostUserPassword"
             control={control}
             render={({ field }) => (
               <TextField
@@ -126,8 +126,8 @@ export const CreateClusterModal = ({ isOpen, onClose }) => {
                 label="Password"
                 variant="outlined"
                 fullWidth
-                error={!!errors.host_user_password}
-                helperText={errors.host_user_password?.message}
+                error={!!errors.hostUserPassword}
+                helperText={errors.hostUserPassword?.message}
               />
             )}
           />
