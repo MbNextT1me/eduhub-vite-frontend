@@ -77,6 +77,25 @@ class Api {
       method: "DELETE",
     });
 
+  getClusters = () =>
+    this.privateRequest({
+    url: "clusters",
+    method: "GET",
+  });
+  
+  createCluster = (data) =>
+    this.privateRequest({
+    url: "clusters",
+    method: "POST",
+    data,
+  });
+  
+  deleteCluster = (clusterId) =>
+    this.privateRequest({
+    url: `clusters/${clusterId}`,
+    method: "DELETE",
+  });
+
   createUser = (data) =>
     this.privateRequest({
       url: "registration",
