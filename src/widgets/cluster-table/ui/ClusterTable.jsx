@@ -9,11 +9,11 @@ import {
     IconButton,
   } from "@mui/material";
   import DeleteIcon from "@mui/icons-material/Delete";
-  import { useClusters, useDeleteCluster } from "~/entities/cluster";
+  import { clusterModel } from "~/entities/cluster";
   
   export const ClusterTable = () => {
-    const { data: clusters, isLoading, error } = useClusters();
-    const deleteCluster = useDeleteCluster();
+    const { data: clusters, isLoading, error } = clusterModel.useClusters();
+    const deleteCluster = clusterModel.useDeleteCluster();
   
     if (isLoading) {
       return "Loading...";
