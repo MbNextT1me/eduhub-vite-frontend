@@ -54,11 +54,14 @@ export const TeacherTaskTable = () => {
                 {dayjs(task.dateFrom).format("LL")}
               </TableCell>
               <TableCell align="center">
-                <IconButton
+              <IconButton
                   color="error"
-                  onClick={() => deleteTask.mutate(task.id)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Предотвращаем всплытие события
+                    deleteTask.mutate(task.id);
+                  }}
                 >
-                  <DeleteIcon />
+                <DeleteIcon />
                 </IconButton>
               </TableCell>
             </TableRow>
