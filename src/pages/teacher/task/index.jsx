@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { PageShell } from "~/shared/ui/PageShell";
 import { taskModel } from "~/entities/task";
@@ -44,7 +44,7 @@ export const TeacherTaskPage = () => {
     error: studentsError,
   } = userModel.useStudents();
   const addFile = fileModel.useAddFile({ taskId, category: "CLUSTER_TEST" });
-  const deleteFile = fileModel.useDeleteFile(taskId);
+  const deleteFile = fileModel.useDeleteFile();
   const downloadFile = fileModel.useDownloadFile();
   const [selectedStudent, setSelectedStudent] = useState(null);
 
@@ -97,7 +97,7 @@ export const TeacherTaskPage = () => {
                   <TableCell align="center">
                     <IconButton
                       color="error"
-                      onClick={() => deleteFile.mutate(file.id)}
+                      onClick={() => deleteFile.mutate({ taskId, fileId: file.id })}
                     >
                       <DeleteIcon />
                     </IconButton>

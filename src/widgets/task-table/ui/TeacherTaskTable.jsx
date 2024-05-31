@@ -57,7 +57,7 @@ export const TeacherTaskTable = () => {
               <IconButton
                   color="error"
                   onClick={(e) => {
-                    e.stopPropagation(); // Предотвращаем всплытие события
+                    e.stopPropagation();
                     deleteTask.mutate(task.id);
                   }}
                 >

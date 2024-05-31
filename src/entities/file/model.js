@@ -13,14 +13,14 @@ export const useTaskFilesByEmail = ({ taskId, email }) =>
     queryFn: () => api.getTaskFilesByEmail({ taskId, email }),
   });
 
-export const useDeleteFile = (taskId) => {
+export const useDeleteFile = () => {
   const queryClient = useQueryClient();
-
+  
   return useMutation({
-    mutationFn: api.deleteFile,
-    onSuccess: () =>
+    mutationFn: ({ taskId, fileId }) => api.deleteFile(taskId, fileId),
+    onSuccess: (data, variables) =>
       queryClient.invalidateQueries({
-        queryKey: ["files", taskId],
+        queryKey: ["files", variables.taskId],
       }),
   });
 };

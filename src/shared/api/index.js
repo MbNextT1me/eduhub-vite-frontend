@@ -40,9 +40,9 @@ class Api {
       data: formData,
     });
 
-  deleteFile = (fileId) =>
+  deleteFile = (taskId, fileId) =>
     this.privateRequest({
-      url: `files/${fileId}`,
+      url: `tasks/${taskId}/files/${fileId}`,
       method: "DELETE",
     });
 
