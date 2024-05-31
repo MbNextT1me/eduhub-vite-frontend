@@ -22,7 +22,7 @@ export const AdminUsersPage = () => {
           </Button>
         </Box>
         <UserTable />
-        <Box mb={2}> 
+        <Box mb={2} mt={4}> 
         <Button variant="contained" size="large" onClick={clusterModalHandlers.open}>
             Create cluster
           </Button>

@@ -42,10 +42,10 @@ import {
               <TableRow key={cluster.id}>
                 <TableCell align="center">{cluster.id}</TableCell>
                 <TableCell align="center">{cluster.name}</TableCell>
-                <TableCell align="center">{cluster.host_name}</TableCell>
+                <TableCell align="center">{cluster.hostNam}</TableCell>
                 <TableCell align="center">{cluster.port}</TableCell>
-                <TableCell align="center">{cluster.host_user_name}</TableCell>
-                <TableCell align="center">{cluster.is_used_as_active ? 'Yes' : 'No'}</TableCell>
+                <TableCell align="center">{cluster.hostUserName}</TableCell>
+                <TableCell align="center">{cluster.usedAsActive ? 'Yes' : 'No'}</TableCell>
                 <TableCell align="center">
                   <IconButton
                     color="error"
